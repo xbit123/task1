@@ -150,6 +150,27 @@ class User private constructor(
             }
         }
 
+        fun makeUserFromImport(
+            fullName: String,
+            email: String,
+            salt: String,
+            hash: String,
+            phone: String
+        ): User {
+            val (firstName, lastName) = fullName.fullNameToPair()
+
+            val user = User(
+                firstName,
+                lastName,
+                if (email.isBlank()) null else email,
+                if (phone.isBlank()) null else phone,
+                mapOf("src" to "csv")
+            )
+            user.passwordHash = hash
+            user.salt = salt
+            return user
+        }
+
         private fun String.fullNameToPair(): Pair<String, String?> =
             this.split(" ")
                 .filter { it.isNotBlank() }

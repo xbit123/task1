@@ -49,6 +49,15 @@ object UserHolder {
     fun requestAccessCode(rawPhone: String) =
         map[normalizePhone(rawPhone)]?.updateAccessCode()
 
+    fun importUsers(list: List<String>): List<User> =
+        list.map { row ->
+            val (fullName, email, saltAndHash, phone) = row.split(";")
+            val (salt, hash) = saltAndHash.split(":")
+            val user = User.makeUserFromImport(fullName, email, salt, hash, phone)
+            map[user.login] = user
+            user
+        }
+
     @VisibleForTesting(otherwise = VisibleForTesting.NONE)
     fun clearHolder() {
         map.clear()
