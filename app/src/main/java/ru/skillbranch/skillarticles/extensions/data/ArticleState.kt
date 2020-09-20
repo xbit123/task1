@@ -1,9 +1,9 @@
 package ru.skillbranch.skillarticles.extensions.data
 
-import ru.skillbranch.skillarticles.viewmodels.ArticleViewModel
 import ru.skillbranch.skillarticles.data.AppSettings
 import ru.skillbranch.skillarticles.data.ArticlePersonalInfo
+import ru.skillbranch.skillarticles.viewmodels.ArticleState
 
-fun ArticleViewModel.ArticleState.toAppSettings() = AppSettings(isDarkMode, isBigText)
+fun ArticleState.toAppSettings() = AppSettings(isDarkMode, isBigText)
 
-fun ArticleViewModel.ArticleState.toArticlePersonalInfo() = ArticlePersonalInfo(isLike, isBookmark)
+fun ArticleState.toArticlePersonalInfo() = ArticlePersonalInfo(isLike, isBookmark)

@@ -10,7 +10,7 @@ import ru.skillbranch.skillarticles.extensions.data.toArticlePersonalInfo
 import ru.skillbranch.skillarticles.extensions.format
 
 class ArticleViewModel(private val articleId: String) :
-    BaseViewModel<ArticleViewModel.ArticleState>(ArticleState()),
+    BaseViewModel<ArticleState>(ArticleState()),
     IArticleViewModel{
     private val repository = ArticleRepository
     private var menuIsShown: Boolean = false
@@ -133,29 +133,28 @@ class ArticleViewModel(private val articleId: String) :
     fun handleSearchQuery(query: String?) = updateState { it.copy(searchQuery = query) }
 
     fun handleIsSearch(isSearch: Boolean) = updateState { it.copy(isSearch = isSearch) }
-
-    data class ArticleState(
-        val isAuth: Boolean = false,
-        val isLoadingContent: Boolean = true,
-        val isLoadingReviews: Boolean = true,
-        val isLike: Boolean = false,
-        val isBookmark: Boolean = false,
-        val isShowMenu: Boolean = false,
-        val isBigText: Boolean = false,
-        val isDarkMode: Boolean = false,
-        val isSearch: Boolean = false,
-        val searchQuery: String? = null,
-        val searchResults: List<Pair<Int, Int>> = emptyList(),
-        val searchPosition: Int = 0,
-        val shareLink: String? = null,
-        val title: String? = null,
-        val category: String? = null,
-        val categoryIcon: Any? = null,
-        val date: String? = null,
-        val author: Any? = null,
-        val poster: String? = null,
-        val content: List<Any> = emptyList(),
-        val reviews: List<Any> = emptyList()
-    )
-
 }
+
+data class ArticleState(
+    val isAuth: Boolean = false,
+    val isLoadingContent: Boolean = true,
+    val isLoadingReviews: Boolean = true,
+    val isLike: Boolean = false,
+    val isBookmark: Boolean = false,
+    val isShowMenu: Boolean = false,
+    val isBigText: Boolean = false,
+    val isDarkMode: Boolean = false,
+    val isSearch: Boolean = false,
+    val searchQuery: String? = null,
+    val searchResults: List<Pair<Int, Int>> = emptyList(),
+    val searchPosition: Int = 0,
+    val shareLink: String? = null,
+    val title: String? = null,
+    val category: String? = null,
+    val categoryIcon: Any? = null,
+    val date: String? = null,
+    val author: Any? = null,
+    val poster: String? = null,
+    val content: List<Any> = emptyList(),
+    val reviews: List<Any> = emptyList()
+)
