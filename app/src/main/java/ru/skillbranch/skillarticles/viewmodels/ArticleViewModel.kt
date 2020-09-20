@@ -1,4 +1,4 @@
-package ru.skillbranch.skillarticles
+package ru.skillbranch.skillarticles.viewmodels
 
 import android.util.Log
 import androidx.lifecycle.LiveData
@@ -8,9 +8,6 @@ import ru.skillbranch.skillarticles.data.repositories.ArticleRepository
 import ru.skillbranch.skillarticles.extensions.data.toAppSettings
 import ru.skillbranch.skillarticles.extensions.data.toArticlePersonalInfo
 import ru.skillbranch.skillarticles.extensions.format
-import ru.skillbranch.skillarticles.viewmodels.BaseViewModel
-import ru.skillbranch.skillarticles.viewmodels.IArticleViewModel
-import ru.skillbranch.skillarticles.viewmodels.Notify
 
 class ArticleViewModel(private val articleId: String) :
     BaseViewModel<ArticleViewModel.ArticleState>(ArticleState()),

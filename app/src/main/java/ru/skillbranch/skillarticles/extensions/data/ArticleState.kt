@@ -1,6 +1,6 @@
 package ru.skillbranch.skillarticles.extensions.data
 
-import ru.skillbranch.skillarticles.ArticleViewModel
+import ru.skillbranch.skillarticles.viewmodels.ArticleViewModel
 import ru.skillbranch.skillarticles.data.AppSettings
 import ru.skillbranch.skillarticles.data.ArticlePersonalInfo
 
